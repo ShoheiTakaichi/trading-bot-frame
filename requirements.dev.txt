@@ -1,0 +1,4 @@
+ccxt==1.91.12
+ccxws @ git+https://@gitlab.com//trading_bot/ccxws.git
+loguru==0.6.0
+PyJWT==2.4.0
