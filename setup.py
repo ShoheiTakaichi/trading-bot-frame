@@ -5,7 +5,7 @@ setup(
     version="0.0.1",
     install_requires=[
         "ccxt==1.91.12",
-        "ccxws @ git+https://oauth2:gl@gitlab.com//trading_bot/ccxws.git",
+        "ccxws @ git+https://github.com/ShoheiTakaichi/ccxws.git",
         "loguru==0.6.0",
         "PyJWT==2.4.0"
     ],
