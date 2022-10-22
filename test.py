@@ -2,10 +2,13 @@ import uuid
 
 from ccxws import mexc
 
-from botframelib import *
-from botframelib import BasicEvent
+from botframelib.Event import *
+from botframelib.EventSourcing import *
+from botframelib.Worker import *
 
 
+api = ""
+secret = ""
 
 mexc = mexc(apiKey=api, secret=secret)
 
