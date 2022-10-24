@@ -13,6 +13,9 @@ class TickerCompaction(IWorker):
 
     def onEveryMinute(self, event):
         self.timestamp = t.time() // 60 * 60
+        if not self.isStart:
+            self.isStart = True
+            return
         for k in self.candleStick.keys():
             self.eventStory.put(self.candleStick[k])
             self.candleStick[k] = CompactionCandle(
@@ -25,8 +28,6 @@ class TickerCompaction(IWorker):
                 close=self.candleStick[k].close,
                 volume=0,
             )
-        if not self.isStart:
-            self.isStart = True
 
     def onUpdateExecution(self, event):
         execution = event.execution
