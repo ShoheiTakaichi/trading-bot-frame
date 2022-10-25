@@ -59,5 +59,5 @@ class CryptoWatch(IWorker):
             raise Exception("invalid format. symbol must be like 'BTC/USD'")
         first, second = symbol.split('/')
         if first[0:3] == 'FX_':
-            return (first + 'fx' + second).lower() 
+            return (first[3:-1] + 'fx' + second).lower() 
         return (first + second).lower()
