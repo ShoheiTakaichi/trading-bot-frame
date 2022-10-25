@@ -2,6 +2,7 @@ import json
 
 import requests
 import pandas as pd
+from loguru import logger
 
 from botframelib.EventSourcing import IWorker
 from botframelib.Event.TradingEvent import *
@@ -47,7 +48,8 @@ class CryptoWatch(IWorker):
                     self.eventStory.put(CryptoWatch7d(exchange=exchange, symbol=symbol, ohlcv=ohlcvs["result"][k]))
                 if k == '604800_Monday':
                     self.eventStory.put(CryptoWatch7dm(exchange=exchange, symbol=symbol, ohlcv=ohlcvs["result"][k]))
-        except:
+        except Exception as e:
+            logger.info(e)
             return
     
     def convert_symbol(symbol: str):
