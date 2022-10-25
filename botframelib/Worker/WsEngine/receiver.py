@@ -136,14 +136,14 @@ class WsReceiver(IWorker):
                 )
             )
             self.eventStory.put(
-                UpdateOhlc5min(
+                UpdateOhlcv5min(
                     exchange=self.client.exchange,
                     symbol=event.symbol,
                     ohlcv=self.client.fetch_ohlcv(symbol=event.symbol, timeframe="5m"),
                 )
             )
             self.eventStory.put(
-                UpdateOhlc1hour(
+                UpdateOhlcv1hour(
                     exchange=self.client.exchange,
                     symbol=event.symbol,
                     ohlcv=self.client.fetch_ohlcv(symbol=event.symbol, timeframe="1h"),
