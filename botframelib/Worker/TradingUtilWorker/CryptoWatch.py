@@ -12,7 +12,7 @@ class CryptoWatch(IWorker):
     def __init__(self):
         IWorker.__init__(self)
 
-    def CryptoWatchEvent(self, Event: CryptoWatchEvent):
+    def onCryptoWatchEvent(self, Event: CryptoWatchEvent):
         exchange = Event.exchange
         symbol = CryptoWatch.convert_symbol(Event.symbol)
         try:
