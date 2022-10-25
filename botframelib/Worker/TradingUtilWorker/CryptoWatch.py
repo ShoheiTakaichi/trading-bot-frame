@@ -49,7 +49,8 @@ class CryptoWatch(IWorker):
                 if k == '604800_Monday':
                     self.eventStory.put(CryptoWatch7dm(exchange=exchange, symbol=symbol, ohlcv=ohlcvs["result"][k]))
         except Exception as e:
-            logger.info(e)
+            logger.error(e)
+            logger.error(ohlcvs)
             return
     
     def convert_symbol(symbol: str):
