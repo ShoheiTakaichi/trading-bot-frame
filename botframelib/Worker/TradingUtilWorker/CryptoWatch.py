@@ -13,7 +13,7 @@ class CryptoWatch(IWorker):
 
     def onCryptoWatch(self, Event: CryptoWatchEvent):
         exchange = Event.exchange
-        symbol = Event.symbol
+        symbol = CryptoWatch.convert_symbol(Event.symbol)
         try:
             query: dict[str, str] = {}
             url = "https://api.cryptowat.ch/markets/" + exchange + "/" + symbol + "/ohlc"
@@ -51,3 +51,11 @@ class CryptoWatch(IWorker):
                     self.eventStory.put(CryptoWatch7dm(exchange=exchange, symbol=symbol, ohlcv=df))
         except:
             return
+    
+    def convert_symbol(symbol: str):
+        if not symbol.isupper() and len(symbol.split('/')) != 2:
+            raise Exception("invalid format. symbol must be like 'BTC/USD'")
+        first, second = symbol.split('/')
+        if fx[0:3] = 'FX_':
+            return (first + 'fx' + second).lower() 
+        return (first + second).lower()
