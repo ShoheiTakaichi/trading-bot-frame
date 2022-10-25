@@ -95,6 +95,15 @@ class UpdateOhlcv1min(IEvent):
     symbol: str
     ohlcv: list[list]
 
+class UpdateOhlcv5min(IEvent):
+    exchange: str
+    symbol: str
+    ohlcv: list[list]
+
+class UpdateOhlcv1hour(IEvent):
+    exchange: str
+    symbol: str
+    ohlcv: list[list]
 
 class UpdateOhlcv1day(IEvent):
     exchange: str
