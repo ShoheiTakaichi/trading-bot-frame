@@ -14,7 +14,7 @@ class CryptoWatchEvent(IEvent):
 class CryptoWatch1min(IEvent):
     exchange: str
     symbol: str
-    ohlcv: pd.DataFrame
+    ohlcv: list[list]
 
 class CryptoWatch3min(IEvent):
     exchange: str
@@ -24,55 +24,54 @@ class CryptoWatch3min(IEvent):
 class CryptoWatch5min(IEvent):
     exchange: str
     symbol: str
-    ohlcv: pd.DataFrame
+    ohlcv: list[list]
 
 class CryptoWatch15min(IEvent):
     exchange: str
     symbol: str
-    ohlcv: pd.DataFrame
     ohlcv: list[list]
 
 class CryptoWatch30min(IEvent):
     exchange: str
     symbol: str
-    ohlcv: pd.DataFrame
+    ohlcv: list[list]
 
 class CryptoWatch1hour(IEvent):
     exchange: str
     symbol: str
-    ohlcv: pd.DataFrame
+    ohlcv: list[list]
 
 class CryptoWatch2hour(IEvent):
     exchange: str
     symbol: str
-    ohlcv: pd.DataFrame
+    ohlcv: list[list]
 
 class CryptoWatch4hour(IEvent):
     exchange: str
     symbol: str
-    ohlcv: pd.DataFrame
+    ohlcv: list[list]
 
 class CryptoWatch6hour(IEvent):
     exchange: str
     symbol: str
-    ohlcv: pd.DataFrame
+    ohlcv: list[list]
 
 class CryptoWatch1d(IEvent):
     exchange: str
     symbol: str
-    ohlcv: pd.DataFrame
+    ohlcv: list[list]
 
 class CryptoWatch3d(IEvent):
     exchange: str
     symbol: str
-    ohlcv: pd.DataFrame
+    ohlcv: list[list]
 
 class CryptoWatch7d(IEvent):
     exchange: str
     symbol: str
-    ohlcv: pd.DataFrame
+    ohlcv: list[list]
 
 class CryptoWatch7dm(IEvent):
     exchange: str
     symbol: str
-    ohlcv: pd.DataFrame
+    ohlcv: list[list]
