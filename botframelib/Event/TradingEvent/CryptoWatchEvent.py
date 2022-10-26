@@ -56,6 +56,11 @@ class CryptoWatch6hour(IEvent):
     symbol: str
     ohlcv: list[list]
 
+class CryptoWatch12hour(IEvent):
+    exchange: str
+    symbol: str
+    ohlcv: list[list]
+
 class CryptoWatch1d(IEvent):
     exchange: str
     symbol: str
