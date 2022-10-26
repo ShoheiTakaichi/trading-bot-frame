@@ -50,7 +50,8 @@ class CryptoWatch(IWorker):
                     self.eventStory.put(CryptoWatch7dm(exchange=exchange, symbol=symbol, ohlcv=ohlcvs["result"][k]))
         except Exception as e:
             logger.error(e)
-            logger.error(ohlcvs)
+            logger.error(ohlcvs.keys())
+            logger.error(ohlcvs['result'].keys())
             logger.error(url)
             return
     
