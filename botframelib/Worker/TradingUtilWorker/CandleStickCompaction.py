@@ -17,13 +17,11 @@ class CandleStickCompaction(IWorker):
             self.candleStick[event.exchange + event.symbol].close = event.close
             self.candleStick[event.exchange + event.symbol].volume += event.volume 
             if event.time // 60 % 5 == 4:
-                self.eventstory.put(
+                self.eventStory.put(
                     self.candleStick[event.exchange + event.symbol]
                 )
-            self.candleStick.pop(event.exchange + event.symbol)
+                self.candleStick.pop(event.exchange + event.symbol)
         else:
-            logger.info(event.time // 60 % 5)
-            logger.info(self.candleStick.keys())
             if event.time // 60 % 5 == 0:
                 self.candleStick[event.exchange + event.symbol] = CompactionCandle5min(
                     exchange=event.exchange,
