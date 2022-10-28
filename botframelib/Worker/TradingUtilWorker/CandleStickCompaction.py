@@ -27,7 +27,7 @@ class CandleStickCompaction(IWorker):
             if event.time // 60 % 5 == 0:
                 self.candleStick[event.exchange + event.symbol] = CompactionCandle5min(
                     exchange=event.exchange,
-                    symbol=sevent.symbol,
+                    symbol=event.symbol,
                     time=event.time,
                     open=event.open,
                     high=event.high,
