@@ -23,6 +23,7 @@ class CandleStickCompaction(IWorker):
             self.candleStick.pop(event.exchange + event.symbol)
         else:
             logger.info(event.time // 60 % 5)
+            logger.info(self.candleStick.keys())
             if event.time // 60 % 5 == 0:
                 self.candleStick[event.exchange + event.symbol] = CompactionCandle5min(
                     exchange=event.exchange,
