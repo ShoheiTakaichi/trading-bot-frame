@@ -9,7 +9,6 @@ class CandleStickCompaction(IWorker):
     def __init__(self):
         IWorker.__init__(self)
         self.candleStick = {}
-        self.isStart = False
 
     def onCompactionCandle(self, event):
         if event.exchange + event.symbol in self.candleStick.keys():
@@ -23,7 +22,7 @@ class CandleStickCompaction(IWorker):
                 )
             self.candleStick.pop(event.exchange + event.symbol)
         else:
-            logger.info(event.time)
+            logger.info(event.time // 60 % 5)
             if event.time // 60 % 5 == 0:
                 self.candleStick[event.exchange + event.symbol] = CompactionCandle5min(
                     exchange=event.exchange,
