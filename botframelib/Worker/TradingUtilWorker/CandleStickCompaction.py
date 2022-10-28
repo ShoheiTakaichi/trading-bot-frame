@@ -4,7 +4,7 @@ from botframelib.EventSourcing import IWorker
 from botframelib.Event.TradingEvent import *
 
 
-class TickerCompaction(IWorker):
+class CandleStickCompaction(IWorker):
     def __init__(self):
         IWorker.__init__(self)
         self.candleStick = {}
