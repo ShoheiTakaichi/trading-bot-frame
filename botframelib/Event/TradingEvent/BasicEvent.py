@@ -71,3 +71,14 @@ class CompactionCandle(IEvent):
 
 class UpdateIdMap(IEvent):
     id_map: dict[uuid.UUID, str]
+
+
+class CompactionCandle5min(IEvent):
+    exchange: str
+    symbol: str
+    time: float
+    open: float
+    high: float
+    low: float
+    close: float
+    volume: float

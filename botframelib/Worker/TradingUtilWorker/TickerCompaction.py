@@ -22,9 +22,9 @@ class TickerCompaction(IWorker):
                 exchange=self.candleStick[k].exchange,
                 symbol=self.candleStick[k].symbol,
                 time=self.timestamp,
-                open=self.candleStick[k].open,
-                high=self.candleStick[k].high,
-                low=self.candleStick[k].low,
+                open=self.candleStick[k].close,
+                high=self.candleStick[k].close,
+                low=self.candleStick[k].close,
                 close=self.candleStick[k].close,
                 volume=0,
             )
@@ -65,6 +65,5 @@ class TickerCompaction(IWorker):
                     high=max(execution.price, self.candleStick[exchange + symbol].high),
                     low=min(execution.price, self.candleStick[exchange + symbol].low),
                     close=execution.price,
-                    volume=self.candleStick[exchange + symbol].volume
-                    + execution.amount * execution.price,
+                    volume=self.candleStick[exchange + symbol].volume + execution.amount * execution.price,
                 )
