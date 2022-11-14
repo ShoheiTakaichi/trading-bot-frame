@@ -161,9 +161,13 @@ class WsReceiver(IWorker):
         res = self.onRequestBalance(event)
         if res is not None:
             self.eventStory.put(SODBalance(wsengine_name=self.name, balance=res))
+            self.eventStory.put(UpdateBalance(wsengine_name=self.name, balance=res))
 
     def onEvery30Sec(self, event):
-        self.onRequestBalance(event)
+        res = self.onRequestBalance(event)
+        if res is not None:
+            self.onRequestBalance(event)
+            self.eventStory.put(UpdateBalance(wsengine_name=self.name, balance=res))
 
     def onUpdateIdMap(self, event: UpdateIdMap):
         """senderとid_mapを同期する。"""
